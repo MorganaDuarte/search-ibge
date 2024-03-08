@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <HelloWorld />
+      <SearchForm />
     </v-main>
   </v-app>
 </template>
