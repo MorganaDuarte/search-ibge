@@ -1,6 +1,6 @@
 <template>
   <div ref="table"></div>
-  <v-btn v-if="!!searchResult.items" variant="text" @click="downloadXls">Baixe sua tabela completa aqui!</v-btn>
+  <v-btn v-if="!!searchResult.items" variant="text" @click="downloadXls" color="orange">Baixe sua tabela completa aqui!</v-btn>
 </template>
 
 <script>
@@ -34,7 +34,7 @@ export default {
         { title: 'Título', field: 'titulo', width: "10%", formatter: "textarea" },
         { title: 'Data divulgação', field: 'data_divulgacao', width: "15%", formatter: "textarea" },
         { title: 'Nome produto', field: 'nome_produto', width: "10%", formatter: "textarea" },
-        { title: 'Descrição produto', field: 'descricao_produto', formatter: "html", cssClass: 'description-column' },
+        { title: 'Descrição produto', field: 'descricao_produto', formatter: "html" },
       ]
       this.tabulator = this.createTable(this.$refs.table, columns);
       this.tabulator.on('tableBuilt', () => this.tabularIsReady = true);

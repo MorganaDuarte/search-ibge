@@ -2,7 +2,7 @@
   <v-app>
     <v-container class="fill-height">
       <v-responsive class="align-center text-center fill-height">
-      <SearchForm />
+      <HomeView />
       </v-responsive>
     </v-container>
   </v-app>

@@ -1,13 +1,10 @@
 <template>
-  <div class="pb-4">
-    <h1>Calendário de Divulgação de Pesquisas do IBGE</h1>
-  </div>
   <v-sheet class="mx-auto" width="300">
     <v-form class="pb-6" @submit.prevent="research">
       <v-text-field v-model="amount" label="Quantidade" :rules=[validAmountRules]></v-text-field>
       <v-text-field v-model="startDate" label="Desde de" type="date" :rules=[validStartDateRules]></v-text-field>
       <v-text-field type="date" v-model="endDate" label="Até" :rules="[validEndDateRules]"></v-text-field>
-      <v-btn class="mt-2" :disabled="disabledButton" type="submit" block>Pesquisar</v-btn>
+      <v-btn class="mt-2" :disabled="disabledButton" type="submit" color="#FF9800" style="color: white;" block>Pesquisar</v-btn>
     </v-form>
   </v-sheet>
   <ResultsTable :search-result="searchResult" />
