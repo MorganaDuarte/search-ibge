@@ -38,7 +38,7 @@ export default {
       return "O campo não pode estar vazio"
     },
     validEndDateRules() {
-      if(this.endDate > this.startDate) return true;
+      if(this.endDate >= this.startDate) return true;
 
       return "A data de 'até' deve ser maior que a data 'de'"
     },
@@ -61,5 +61,4 @@ export default {
     }
   }
 }
-
 </script>
