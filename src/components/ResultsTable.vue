@@ -95,6 +95,10 @@ export default {
   display: none !important;
 }
 
+.tabulator-col-title {
+  color: #FC8E2B !important;
+}
+
 .tabulator-page {
   border: none !important;
   border-radius: 0 !important;
