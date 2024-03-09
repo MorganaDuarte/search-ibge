@@ -1,8 +1,10 @@
 <template>
   <v-app>
-    <v-main>
+    <v-container class="fill-height">
+      <v-responsive class="align-center text-center fill-height">
       <SearchForm />
-    </v-main>
+      </v-responsive>
+    </v-container>
   </v-app>
 </template>
 
