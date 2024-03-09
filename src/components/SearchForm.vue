@@ -7,6 +7,7 @@
       <v-btn class="mt-2" :disabled="disabledButton" type="submit" color="#FF9800" style="color: white;" block>Pesquisar</v-btn>
     </v-form>
   </v-sheet>
+  <v-progress-linear v-if="loading" indeterminate color="#FF9800"></v-progress-linear>
   <ResultsTable :search-result="searchResult" />
 </template>
 
@@ -21,6 +22,7 @@ export default {
       startDate: "2020-01-01",
       endDate: "2024-03-08",
       searchResult: [],
+      loading: false,
     }
   },
   computed: {
@@ -45,6 +47,7 @@ export default {
   },
   methods: {
     async research() {
+      this.loading = true;
       const url = `https://servicodados.ibge.gov.br/api/v3/calendario/?qtd=${this.amount}&de=${this.startDate}&ate=${this.endDate}`
       try {
         const response = await fetch(url);
@@ -55,6 +58,7 @@ export default {
       } catch (error) {
         console.error('Error fetching data:', error);
       }
+      this.loading = false;
     }
   }
 }
