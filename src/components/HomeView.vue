@@ -1,5 +1,5 @@
 <template>
-  <h1 class="text-orange pb-8">Calendário de Divulgação de Pesquisas do IBGE</h1>
+  <h1 class="pb-8" style="color: #FC8E2B">Calendário de Divulgação de Pesquisas do IBGE</h1>
   <SearchForm />
 </template>
 

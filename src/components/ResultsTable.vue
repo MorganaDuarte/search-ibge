@@ -1,6 +1,6 @@
 <template>
   <div ref="table"></div>
-  <v-btn v-if="!!searchResult.items" variant="text" @click="downloadXls" color="orange">Baixe sua tabela completa aqui!</v-btn>
+  <v-btn v-if="!!searchResult.items" variant="text" @click="downloadXls" color="#FC8E2B">Baixe sua tabela completa aqui!</v-btn>
 </template>
 
 <script>
@@ -30,10 +30,10 @@ export default {
   methods: {
     prepareTable() {
       const columns = [
-        { title: 'Id', field: 'id' },
+        { title: 'ID', field: 'id' },
         { title: 'Título', field: 'titulo', width: "10%", formatter: "textarea" },
         { title: 'Data divulgação', field: 'data_divulgacao', width: "15%", formatter: "textarea" },
-        { title: 'Nome produto', field: 'nome_produto', width: "10%", formatter: "textarea" },
+        { title: 'Nome produto', field: 'nome_produto', width: "15%", formatter: "textarea" },
         { title: 'Descrição produto', field: 'descricao_produto', formatter: "html" },
       ]
       this.tabulator = this.createTable(this.$refs.table, columns);
@@ -48,6 +48,18 @@ export default {
         placeholder: "Não há dados disponiveis",
         paginationSize: 3,
         pagination: true,
+        locale: "pt-br",
+        paginationCounter: function(pageSize, currentRow, currentPage, totalRows, totalPages){
+          return "Mostrando " + pageSize +  " de " + totalRows;
+        },
+        langs: {
+          "pt-br": {
+            "pagination": {
+              "next": "Próxima",
+              "prev": "Anterior",
+            }
+          }
+        }
       });
     },
     downloadXls() {
@@ -77,3 +89,30 @@ export default {
   }
 }
 </script>
+
+<style>
+[data-page="first"], [data-page="last"] {
+  display: none !important;
+}
+
+.tabulator-page {
+  border: none !important;
+  border-radius: 0 !important;
+  color: #FC8E2B !important;
+  font-weight: normal !important;
+  box-shadow: 0 0 2px #FC8E2B;
+  padding: 6px !important;
+}
+
+.tabulator-page:disabled {
+  color: #9E9E9E !important;
+}
+
+.tabulator-page.active {
+  font-weight: bold !important;
+}
+
+.tabulator-page-counter {
+  color: #FC8E2B
+}
+</style>
