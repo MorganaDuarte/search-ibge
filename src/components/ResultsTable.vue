@@ -34,7 +34,7 @@ export default {
         { title: 'Título', field: 'titulo', width: "10%", formatter: "textarea" },
         { title: 'Data divulgação', field: 'data_divulgacao', width: "15%", formatter: "textarea" },
         { title: 'Nome produto', field: 'nome_produto', width: "15%", formatter: "textarea" },
-        { title: 'Descrição produto', field: 'descricao_produto', formatter: "html" },
+        { title: 'Descrição produto', field: 'descricao_produto', width: "50%", formatter: "html" },
       ]
       this.tabulator = this.createTable(this.$refs.table, columns);
       this.tabulator.on('tableBuilt', () => this.tabularIsReady = true);
@@ -49,7 +49,7 @@ export default {
         paginationSize: 3,
         pagination: true,
         locale: "pt-br",
-        paginationCounter: function(pageSize, currentRow, currentPage, totalRows, totalPages){
+        paginationCounter: function(pageSize, currentRow, currentPage, totalRows){
           return "Mostrando " + pageSize +  " de " + totalRows;
         },
         langs: {
@@ -117,6 +117,10 @@ export default {
 }
 
 .tabulator-page-counter {
-  color: #FC8E2B
+  color: #FC8E2B;
+}
+
+[tabulator-field="descricao_produto"] {
+  white-space: pre-wrap !important;
 }
 </style>
