@@ -120,7 +120,14 @@ export default {
   color: #FC8E2B;
 }
 
-.tabulator-cell {
+[tabulator-field] {
   white-space: pre-wrap !important;
+}
+
+@media (max-width: 600px) {
+  [tabulator-field="descricao_produto"] {
+    white-space: nowrap !important;
+
+  }
 }
 </style>
