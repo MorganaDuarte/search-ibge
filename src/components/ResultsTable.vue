@@ -30,18 +30,18 @@ export default {
   methods: {
     prepareTable() {
       const columns = [
-        { title: 'ID', field: 'id' },
-        { title: 'Título', field: 'titulo', width: "10%", formatter: "textarea" },
-        { title: 'Data divulgação', field: 'data_divulgacao', width: "15%", formatter: "textarea" },
-        { title: 'Nome produto', field: 'nome_produto', width: "15%", formatter: "textarea" },
-        { title: 'Descrição produto', field: 'descricao_produto', width: "50%", formatter: "html" },
+        { title: 'ID', field: 'id', width: 100, resizable: false },
+        { title: 'Título', field: 'titulo', width: 200, resizable: false },
+        { title: 'Data divulgação', field: 'data_divulgacao', width: 180, resizable: false },
+        { title: 'Nome produto', field: 'nome_produto', width: 200, resizable: false },
+        { title: 'Descrição produto', field: 'descricao_produto', formatter: "html", resizable: false },
       ]
       this.tabulator = this.createTable(this.$refs.table, columns);
       this.tabulator.on('tableBuilt', () => this.tabularIsReady = true);
     },
     createTable(html, columns) {
       return new Tabulator(html, {
-        layout: "fitDataTable",
+        layout: "fitDataStretch",
         reactiveData: true,
         columns: columns,
         data: this.searchResult.items,
@@ -120,7 +120,7 @@ export default {
   color: #FC8E2B;
 }
 
-[tabulator-field="descricao_produto"] {
+.tabulator-cell {
   white-space: pre-wrap !important;
 }
 </style>
