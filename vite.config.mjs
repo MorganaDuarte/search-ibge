@@ -10,6 +10,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/search-ibge/",
   plugins: [
     Vue({
       template: { transformAssetUrls }
